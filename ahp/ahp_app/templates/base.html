@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Contract Selection AHP">
+
+  {% load static %}
+
+  <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+  <meta property="og:title" content="">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:description" content="">
+
+  <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
+
+  <!-- Fav and touch icons -->
+  <link rel="shortcut icon" href="{% static 'img/icons/favicon.png' %}">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'img/icons/114x114.png' %}">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'img/icons/72x72.png' %}">
+  <link rel="apple-touch-icon-precomposed" href="{% static 'img/icons/default.png' %}">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{% static 'lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/owlcarousel/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/owlcarousel/owl.theme.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/owlcarousel/owl.transitions.min.css' %}" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'chosen/chosen.css' %}">
+  <link rel="stylesheet" href="{% static 'chosen/prism.css' %}">
+
+  <!-- Main Stylesheet File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  <!--Your custom colour override - predefined colours are: colour-blue.css, colour-green.css, colour-lavander.css, orange is default-->
+  {% comment %} <link href="{% static 'css/colour-lavender.css' %}" rel="stylesheet"> {% endcomment %}
+</head>
+
+<body class="page-index has-hero">
+  <!--Change the background class to alter background image, options are: benches, boots, buildings, city, metro -->
+  <div id="background-wrapper" class="buildings" data-stellar-background-ratio="0.1">
+
+    <!-- ======== @Region: #navigation ======== -->
+    <div id="navigation" class="wrapper">
+      <!--Header & navbar-branding region-->
+      <div class="header">
+        <div class="header-inner container">
+          <div class="row">
+            <div class="col-md-8">
+              <!--navbar-branding/logo - hidden image tag & site name so things like Facebook to pick up, actual logo set via CSS for flexibility -->
+              <a class="navbar-brand" href="{% url 'root' %}" title="Home">
+                <h1 class="hidden">
+                    <img src="{% static 'img/logo.png' %}" alt="FAHP">
+                    ContraSel
+                  </h1>
+              </a>
+              <div class="navbar-slogan">
+                Contactor Selection Portal
+                <br> By AFOLAYAN A. H. (CSC/00/5349)
+              </div>
+            </div>
+            <!--header rightside-->
+            <div class="col-md-4">
+              <!--user menu-->
+              <ul class="list-inline user-menu pull-right">
+                <li class="user-login"><i class="fa fa-sign-in text-primary"></i> {% if user.is_authenticated %}  <a href="{% url 'logout' %}" class="text-uppercase"> <b>{{ user.username }}! <br> </b> Logout</a> {% else %}<a href="{% url 'login' %}" class="text-uppercase"> <b>Login</b> </a>{% endif %} </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="navbar navbar-default">
+          <!--mobile collapse menu button-->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <!--social media icons-->
+          <div class="navbar-text social-media social-media-inline pull-right">
+            <!--@todo: replace with company social media details-->
+            <!-- <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a> -->
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-google-plus"></i></a>
+          </div>
+          <!--everything within this div is collapsed on mobile-->
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav" id="main-menu">
+              <li class="icon-link">
+                <a href="{% url 'root' %}"><i class="fa fa-home"></i></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">ADMIN<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                  <li class="dropdown-header">Options</li>
+                  <li><a href="{% url 'new-bid' %}" tabindex="-1" class="menu-item">New Bid</a></li>
+                  <li><a href="{% url 'admin-views' %}" tabindex="-1" class="menu-item">Bids</a></li>                
+                  <li><a href="#" tabindex="-1" class="menu-item">Closed Bids</a></li>
+                  <li><a href="{% url 'contractors' %}" tabindex="-1" class="menu-item">Contractors</a></li>
+                  <li class="dropdown-footer">Admin Action</li>
+                </ul>
+              </li>
+              <li class="dropdown dropdown-mm">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">DECISION MAKERS<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu dropdown-menu-mm dropdown-menu-persist">
+                  <li class="row">
+                    <ul class="">
+                      <li class="dropdown-header">Decision makers' panel</li>
+                      <li><a href="{% url 'bids' %}" tabindex="-1" class="menu-item">Active Bids</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown dropdown-mm">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">ABOUT<b class="caret"></b></a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu dropdown-menu-mm dropdown-menu-persist">
+                  <li class="row">
+                    <ul class="col-md-6">
+                      <li class="dropdown-header">Reporting Panel</li>
+                      <li><a href="#">System Architecture</a></li>
+                      <li><a href="#">Code &amp; Development / Implementation &amp; Support</a></li>
+                    </ul>
+                    <ul class="col-md-6">
+                      <li class="dropdown-header">Evaluation</li>
+                      <li><a href="#">Analysis</a></li>
+                      <li><a href="#">Quality Assurance</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!--/.navbar-collapse -->
+        </div>
+      </div>
+    </div>
+
+    {% block index_highlight %}
+
+    {% endblock index_highlight %}
+
+  </div>
+
+  <!-- ======== @Region: #content ======== -->
+  <div id="container-fluid ">
+    <div class="container">
+       {% block main %}
+
+       {% endblock main %}
+    </div>
+  </div>
+  <!-- /content -->
+
+  <!-- ======== @Region: #footer ======== -->
+    <footer id="" class="block block-bg-grey-dark">
+      <div class="container">
+        <div class="row ">
+          <!--@todo: replace with company copyright details-->
+          <div class="col-md-7">
+            <p>Copyright © Afolayan</p>
+          </div>
+          <div class="col-md-5">
+            <ul class="list-inline pull-right">
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="#top" class="scrolltop">Top</a>
+
+      </div>
+    </footer>
+
+  <!-- Required JavaScript Libraries -->
+  <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'lib/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'lib/stellar/stellar.min.js' %}"></script>
+  <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+  <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+
+  <!-- Template Specisifc Custom Javascript File -->
+  <script src="{% static 'chosen/chosen.jquery.js' %}" type="text/javascript"></script>
+  <script src="{% static 'chosen/prism.js' %}" type="text/javascript" charset="utf-8"></script>
+  <script src="{% static 'chosen/init.js' %}" type="text/javascript" charset="utf-8"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+
+  <!--Custom scripts demo background & colour switcher - OPTIONAL -->
+  <script src="{% static 'js/color-switcher.js' %}"></script>
+
+  {% block extrajs %}
+
+  {% endblock extrajs %}
+
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block main %}
+<div class="mbody">
+  <div class="row">
+      <div class="col-md-10">
+        <div class="">
+            <h2>List of Contractors</h2>
+        </div>
+          <div class="survey-description">
+              <table class="table table-stripped">
+                <thead>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th>Phone Number</th>
+                  <th>Email Address</th>
+                </thead>
+                <tbody>
+                  {% for crt in contractors %}
+                    <tr>
+                      <td>{{ crt.name }}</td>
+                      <td>{{ crt.address }}</td>
+                      <td>{{ crt.phone }}</td>
+                      <td>{{ crt.email }}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+          </div>
+          <div class="">
+            <a href="{% url 'new-contractor' %}">Add New</a>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

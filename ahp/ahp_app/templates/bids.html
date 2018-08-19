@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+<div class="mbody">
+  <div class="col-md-8">
+      <table class="table table-stripped">
+          <thead>
+              <th>Project Title</th>
+              <th>Date Created</th>
+          </thead>
+          <tbody>
+              {% for bid in bids %}
+                  <tr>
+                      <td><a href="{{ bid.get_absolute_url }}">{{ bid.name }}</a></td>
+                      <td>{{ bid.created_at }}</td>
+                  </tr>
+              {% endfor %}
+          </tbody>
+      </table>      
+  </div>
+</div>
+{% endblock %}

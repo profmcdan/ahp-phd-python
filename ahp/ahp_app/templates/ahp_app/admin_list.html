@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="class="mbody"">
+  <div class="col-md-8">
+      <div class="">
+        <h2>Heading 2</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <table class="table table-stripped">
+          <thead>
+              <th>Project Title</th>
+              <th>Date Created</th>
+              <th></th>
+              <th></th>
+              <th></th>
+          </thead>
+          <tbody>
+              {% for bid in bids %}
+                  <tr>
+                      <td><a href="{{ bid.get_absolute_url }}">{{ bid.name }}</a></td>
+                      <td>{{ bid.created_at }}</td>
+                      {% if bid.activated == False %}<td> <a href="{{ bid.get_add_criteria_url }}">Add Criteria</a> </td>{% endif %}
+                      {% if bid.activated == False %}<td> <a href="{{ bid.get_add_subcriteria_url }}">Add Sub-Criteria</a> </td>{% endif %}
+                      <td> {% if bid.activated %} <p>Activated</p> {% else %} <a href="{{ bid.get_activate_url }}">Activate</a> {% endif %} </td>
+                  </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+
+      <div class="">
+        <a class="btn btn-primary" href="{% url 'new-bid' %}">Create a new bid</a>
+      </div>
+  </div>
+</div>
+{% endblock %}

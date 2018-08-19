@@ -1,0 +1,49 @@
+{% extends "base_page.html" %}
+
+{% load bootstrap %}
+
+{% block main_content %}
+<div class="page-header">
+  <h1>
+      Log in
+      <small>Provide your username and password</small>
+    </h1>
+</div>
+<div class="block block-border-bottom-grey block-pd-sm">
+  <h3 class="block-title">
+      {{ sub_title }}
+    </h3>
+  <div class="">
+      {% if form.errors %}
+          <p>Your username and password  didn't match. Please try again</p>
+      {% endif %}
+
+      {% if next %}
+          {% if user.is_authenticated %}
+              <p>Your account does not have access to this page.
+              Please login with an account that have access. </p>
+          {% else %}
+            <p>Please login to see this page.</p>
+          {% endif %}
+      {% endif %}  
+      
+      <form class="col-md-6" action="{% url 'login' %}" method="post">
+          {% csrf_token %}
+          <div class="">
+            <div>{{ form.username|bootstrap }}</div>
+          </div>
+          <div class="form-group">
+            <div>{{ form.password|bootstrap }}</div>
+          </div>
+  
+          <div class="form-group">
+            <input class="btn btn-primary btn-lg" type="submit" name="" value="Login">
+            <input type="hidden" name="next" value="{{ next }}">
+          </div>
+      </form>
+
+      
+
+  </div>
+
+{% endblock  %}

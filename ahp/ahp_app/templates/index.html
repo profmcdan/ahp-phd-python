@@ -1,0 +1,60 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block index_highlight %}
+<div class="hero" id="highlighted">
+        <div class="inner">
+          <!--Slideshow-->
+          <div id="highlighted-slider" class="container">
+            <div class="item-slider" data-toggle="owlcarousel" data-owlcarousel-settings='{"singleItem":true, "navigation":true, "transitionStyle":"fadeUp"}'>
+              <!--Slideshow content-->
+              <!--Slide 1-->
+              <div class="item">
+                <div class="row">
+                  <div class="col-md-6 col-md-push-6 item-caption">
+                    <h2 class="h1 text-weight-light">
+                        Welcome to <span class="text-primary">ContracSel</span>
+                      </h2>
+                    <h4>
+                          A web based multi-criteria group decision support system for contractor selection using Fuzzy Analytic Hierarchy Process (FAHP)
+                      </h4>
+                    <p>The nature of contractor selection decision making problem is generally complicated and unstructured
+                        and there are many quantitative and qualitative criteria that must be considered to identify the
+                        appropriate contractor. This research aims to prioritize contractor selection criteria and rank the
+                        contractors taking into consideration all of the essential criteria by utilizing Fuzzy Analytic
+                        Hierarchy Process (FAHP). The system will aid timely decision making and reduce bias on the part of
+                        the stakeholders while allowing participation in an online platform. </p>
+                    <a href="#" class="btn btn-more btn-lg i-right">More <i class="fa fa-plus"></i></a>
+                  </div>
+                  <div class="col-md-6 col-md-pull-6 hidden-xs">
+                    <img src="{% static 'img/slides/slide1.png' %}" alt="Slide 1" class="center-block img-responsive">
+                  </div>
+                </div>
+              </div>
+              <!--Slide 2-->
+              <div class="item">
+                <div class="row">
+                  <div class="col-md-6 text-right-md item-caption">
+                    <h2 class="h1 text-weight-light">
+                        <span class="text-primary">ContracSel</span> Web Portal
+                      </h2>
+                    <h4>
+                          A Fuzzy enabled web based multi-criteria group decision support system for contractor selection
+                      </h4>
+                    <p>Selection of the best Contractor in the public procurement process is a typical example of a
+                        Multi-Criteria Decision Making Problem. In this research work, the Federal Universities in
+                        Nigeria will be used as case study. The proposed system will help in selecting highly
+                        qualified Contractors within a limited time for procurement in Nigeria Universities.</p>
+                    <a href="#" class="btn btn-more btn-lg"><i class="fa fa-plus"></i> Learn More</a>
+                  </div>
+                  <div class="col-md-6 hidden-xs">
+                    <img src="{% static 'img/slides/slide2.png' %}" alt="Slide 2" class="center-block img-responsive">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+{% endblock  %}

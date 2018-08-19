@@ -1,0 +1,57 @@
+{
+  "name": "Sample Model",
+  "method": "approximate",
+  "criteria": ["critA", "critB", "critC", "critD", "critE", "critF", "critG"],
+  "subCriteria": {
+    "critA": ["subCritA", "subCritB", "subCritC", "subCriteriaD"],
+    "critB": ["subCritA", "subCritB", "subCritC", "subCriteriaD"],
+    "critC": ["subCritA", "subCritB", "subCritC", "subCriteriaD"],
+    "critD": ["subCritA", "subCritB", "subCritC", "subCriteriaD"],
+    "critE": ["subCritA", "subCritB", "subCritC", "subCriteriaD"],
+    "critF": ["subCritA", "subCritB", "subCritC", "subCriteriaD"],
+    "critG": ["subCritA", "subCritB", "subCritC", "subCriteriaD"]
+  },
+  "alternatives": ["altA", "altB", "altC"],
+  "preferenceMatrices": {
+    "criteria": [
+      [[1, 1, 1], [1, 1, 1], [4, 5, 6], [6, 7, 8], [4, 5, 6]],
+      [[1, 1, 1], [1, 1, 1], [4, 5, 6], [6, 7, 8], [6, 7, 8]],
+      [
+        [0.1667, 0.2, 0.25],
+        [1.1667, 0.2, 0.25],
+        [1, 1, 1],
+        [0.25, 0.3333, 0.5],
+        [2, 3, 4]
+      ],
+      [
+        [0.125, 0.1429, 0.1667],
+        [0.125, 0.1429, 0.1667],
+        [2, 3, 4],
+        [1, 1, 1],
+        [0.1667, 0.2, 0.25]
+      ],
+      [
+        [0.1667, 0.2, 0.25],
+        [0.125, 0.1429, 0.1667],
+        [0.25, 0.3333, 0.5],
+        [4, 5, 6],
+        [1, 1, 1]
+      ]
+    ],
+    "subCriteria:critA": [
+      [[1, 1, 1], [1, 1, 1], [4, 5, 6], [6, 7, 8]],
+      [[1, 1, 1], [1, 1, 1], [4, 5, 6], [6, 7, 8]],
+      [
+        [0.1667, 0.2, 0.25],
+        [1.1667, 0.2, 0.25],
+        [1, 1, 1],
+        [0.25, 0.3333, 0.5]
+      ],
+      [[0.125, 0.1429, 0.1667], [0.125, 0.1429, 0.1667], [2, 3, 4], [1, 1, 1]]
+    ],
+    "alternatives:subCritA": [[1, 1, 1], [1, 1, 1], [1, 1, 1]],
+    "alternatives:subCritB": [[1, 1, 1], [1, 1, 1], [1, 1, 1]],
+    "alternatives:critB": [[1, 1, 1], [1, 1, 1], [1, 1, 1]],
+    "alternatives:critC": [[1, 1, 1], [1, 1, 1], [1, 1, 1]]
+  }
+}

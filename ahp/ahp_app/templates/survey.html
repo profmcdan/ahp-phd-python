@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block main %}
+<div class="mbody">
+  <div class="row">
+      <div class="col-md-8">
+          <h2>{{survey.name|title}}</h2>
+
+          <div>
+              <form action="/survey/{{survey.pk}}/" method="post">
+                  {% csrf_token %}
+                  {{ response_form|bootstrap }}
+
+                  <div class="submit-button">
+                      <input class="btn btn-primary btn-lg" type="submit" value="Submit">
+                  </div>
+              </form>
+
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="survey-description">
+              <h4>Project Description:</h4>
+              <p>{{survey.description|safe}}</p>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extrajs %}
+	<script src="/media/js/jquery.collapsible.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//collapsible management
+			$('.collapsible').collapsible({defaultOpen: 'response_metadata'});
+		});
+	</script>
+{% endblock %}

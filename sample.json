@@ -1,0 +1,18 @@
+{
+  "name": "Contract Model",
+  "method": "eigenvalue",
+  "criteria": ["Financial", "Experience", "Skill"],
+  "subCriteria": {
+    "Financial": ["subCritA", "subCritB"]
+  },
+  "alternatives": ["altA", "altB", "altC"],
+  "preferenceMatrices": {
+    "criteria": [[1, 1, 1], [1, 1, 1], [1, 1, 1]],
+    "subCriteria:Financial": [[1, 1], [1, 1]],
+    "alternatives:subCritA": [[1, 1, 1], [1, 1, 1], [1, 1, 1]],
+    "alternatives:subCritB": [[1, 1, 1], [1, 1, 1], [1, 1, 1]],
+    "alternatives:Experience": [[1, 1, 1], [1, 1, 1], [1, 1, 1]],
+    "alternatives:Skill": [[1, 1, 1], [1, 1, 1], [1, 1, 1]]
+  }
+}
+

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block main %}
+<div class="mbody">
+  <div class="row">
+      <div class="col-md-8">
+          <h2>Create a new Contractor</h2>
+
+          <div>
+              <form action="" method="post">
+                  {% csrf_token %}
+                  {{ form|bootstrap }}
+
+                  <div class="submit-button">
+                      <input class="btn btn-primary btn-lg" type="submit" value="Submit">
+                  </div>
+              </form>
+
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="survey-description">
+
+          </div>
+      </div>
+  </div>
+
+</div>
+{% endblock %}
