@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block main %}
+<div class="mbody">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>{{bid.name|title}}</h2>
+
+      <div>
+        <form action="" method="post">
+          {% csrf_token %}
+          {{ form|bootstrap }}
+
+
+          <div class="submit-button">
+            <input class="btn btn-primary btn-lg" type="submit" value="Save and Continue">
+          </div>
+        </form>
+
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="survey-description">
+        <h4>Project Description:</h4>
+        <p>{{bid.description|safe}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extrajs %}
+<script type="text/javascript">
+        // $("#addMore").click(function(){
+        //    $('#id_temp_criteria')
+        //        .clone()
+        //        .attr({'id':'id_temp_criteria'+ cloneCount++, 'name': 'id_temp_criteria'+ cloneCount++})
+         //       .insertAfter($('[id^=id_temp_criteria]:last'));
+        // });
+
+
+</script>
+{% endblock %}

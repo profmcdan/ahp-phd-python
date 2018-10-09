@@ -25,7 +25,7 @@ SECRET_KEY = '#jp)g!drz&ostu(ke9abi@e6fd=bhy47d^j7@c-@c1_p%hli8j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.101.1.10', '62.173.38.13', '41.184.56.198', '127.0.0.1',]
+ALLOWED_HOSTS = ['127.0.0.1', ]
 
 
 # Application definition
@@ -57,7 +57,8 @@ ROOT_URLCONF = 'ahp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'uploads/templates'),],  # Add this for media serving
+        # Add this for media serving
+        'DIRS': [os.path.join(BASE_DIR, 'uploads/templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -65,7 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.media', # Add this for media serving
+                'django.template.context_processors.media',  # Add this for media serving
             ],
         },
     },
@@ -79,8 +80,12 @@ WSGI_APPLICATION = 'ahp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ahp',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -141,4 +146,3 @@ EMAIL_HOST_USER = 'dtale'
 EMAIL_HOST_PASSWORD = 'dan9291@ipnx'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-

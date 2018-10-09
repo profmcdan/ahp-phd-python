@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<style>
+  select{
+      width: 70%;
+    }
+  </style>
+{% endblock extra_css %}
+
+{% block main %}
+<h2>Technical Capability Rating</h2>
+<hr>
+<table id="financial" class="display table-responsive" style="width:100%; table-layout: fixed">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Experience</th>
+      <th>Labour</th>
+      <th>Qualification</th>
+      <th>Ability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Experience</td>
+      <td>Equal</td>
+      <td><select name="ex_lb" id="ex_lb">
+          <option value="----" selected="selected">--------</option>
+          <option value="Equally Preferred">Equally Preferred</option>
+          <option value="Equally to Moderately Preferred">Equally to Moderately Preferred</option>
+          <option value="Moderately Preferred">Moderately Preferred</option>
+          <option value="Moderately to Strongly Preferred">Moderately to Strongly Preferred</option>
+          <option value="Strongly Preferred">Strongly Preferred</option>
+          <option value="Strongly to Very Strongly Preferred">Strongly to Very Strongly Preferred</option>
+          <option value="Very Strongly Preferred">Very Strongly Preferred</option>
+          <option value="Very Strongly to Extremely Preferred">Very Strongly to Extremely Preferred</option>
+          <option value="Extremely Preferred">Extremely Preferred</option>
+        </select></td>
+      <td><select name="ex_ql" id="ex_ql">
+          <option value="----" selected="selected">--------</option>
+          <option value="Equally Preferred">Equally Preferred</option>
+          <option value="Equally to Moderately Preferred">Equally to Moderately Preferred</option>
+          <option value="Moderately Preferred">Moderately Preferred</option>
+          <option value="Moderately to Strongly Preferred">Moderately to Strongly Preferred</option>
+          <option value="Strongly Preferred">Strongly Preferred</option>
+          <option value="Strongly to Very Strongly Preferred">Strongly to Very Strongly Preferred</option>
+          <option value="Very Strongly Preferred">Very Strongly Preferred</option>
+          <option value="Very Strongly to Extremely Preferred">Very Strongly to Extremely Preferred</option>
+          <option value="Extremely Preferred">Extremely Preferred</option>
+        </select></td>
+      <td><select name="ex_ab" id="ex_ab">
+          <option value="----" selected="selected">--------</option>
+          <option value="Equally Preferred">Equally Preferred</option>
+          <option value="Equally to Moderately Preferred">Equally to Moderately Preferred</option>
+          <option value="Moderately Preferred">Moderately Preferred</option>
+          <option value="Moderately to Strongly Preferred">Moderately to Strongly Preferred</option>
+          <option value="Strongly Preferred">Strongly Preferred</option>
+          <option value="Strongly to Very Strongly Preferred">Strongly to Very Strongly Preferred</option>
+          <option value="Very Strongly Preferred">Very Strongly Preferred</option>
+          <option value="Very Strongly to Extremely Preferred">Very Strongly to Extremely Preferred</option>
+          <option value="Extremely Preferred">Extremely Preferred</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td>Labour</td>
+      <td><select name="lb_ex" id="lb_ex">
+          <option value="----" selected="selected">--------</option>
+          <option value="Equally Preferred">Equally Preferred</option>
+          <option value="Equally to Moderately Preferred">Equally to Moderately Preferred</option>
+          <option value="Moderately Preferred">Moderately Preferred</option>
+          <option value="Moderately to Strongly Preferred">Moderately to Strongly Preferred</option>
+          <option value="Strongly Preferred">Strongly Preferred</option>
+          <option value="Strongly to Very Strongly Preferred">Strongly to Very Strongly Preferred</option>
+          <option value="Very Strongly Preferred">Very Strongly Preferred</option>
+          <option value="Very Strongly to Extremely Preferred">Very Strongly to Extremely Preferred</option>
+          <option value="Extremely Preferred">Extremely Preferred</option>
+        </select></td>
+      <td>Equal</td>
+      <td><select name="lb_ql" id="lb_ql">
+          <option value="----" selected="selected">--------</option>
+          <option value="Equally Preferred">Equally Preferred</option>
+          <option value="Equally to Moderately Preferred">Equally to Moderately Preferred</option>
+          <option value="Moderately Preferred">Moderately Preferred</option>
+          <option value="Moderately to Strongly Preferred">Moderately to Strongly Preferred</option>
+          <option value="Strongly Preferred">Strongly Preferred</option>
+          <option value="Strongly to Very Strongly Preferred">Strongly to Very Strongly Preferred</option>
+          <option value="Very Strongly Preferred">Very Strongly Preferred</option>
+          <option value="Very Strongly to Extremely Preferred">Very Strongly to Extremely Preferred</option>
+          <option value="Extremely Preferred">Extremely Preferred</option>
+        </select></td>
+      <td><select name="lb_ab" id="lb_ab">
+          <option value="----" selected="selected">--------</option>
+          <option value="Equally Preferred">Equally Preferred</option>
+          <option value="Equally to Moderately Preferred">Equally to Moderately Preferred</option>
+          <option value="Moderately Preferred">Moderately Preferred</option>
+          <option value="Moderately to Strongly Preferred">Moderately to Strongly Preferred</option>
+          <option value="Strongly Preferred">Strongly Preferred</option>
+          <option value="Strongly to Very Strongly Preferred">Strongly to Very Strongly Preferred</option>
+          <option value="Very Strongly Preferred">Very Strongly Preferred</option>
+          <option value="Very Strongly to Extremely Preferred">Very Strongly to Extremely Preferred</option>
+          <option value="Extremely Preferred">Extremely Preferred</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td>Qualification</td>
+      <td><select name="ql_ex" id="ql_ex">
+          <option value="----" selected="selected">--------</option>
+          <option value="Equally Preferred">Equally Preferred</option>
+          <option value="Equally to Moderately Preferred">Equally to Moderately Preferred</option>
+          <option value="Moderately Preferred">Moderately Preferred</option>
+          <option value="Moderately to Strongly Preferred">Moderately to Strongly Preferred</option>
+          <option value="Strongly Preferred">Strongly Preferred</option>
+          <option value="Strongly to Very Strongly Preferred">Strongly to Very Strongly Preferred</option>
+          <option value="Very Strongly Preferred">Very Strongly Preferred</option>
+          <option value="Very Strongly to Extremely Preferred">Very Strongly to Extremely Preferred</option>
+          <option value="Extremely Preferred">Extremely Preferred</option>
+        </select></td>
+      <td><select name="ql_lb" id="ql_lb">
+          <option value="----" selected="selected">--------</option>
+          <option value="Equally Preferred">Equally Preferred</option>
+          <option value="Equally to Moderately Preferred">Equally to Moderately Preferred</option>
+          <option value="Moderately Preferred">Moderately Preferred</option>
+          <option value="Moderately to Strongly Preferred">Moderately to Strongly Preferred</option>
+          <option value="Strongly Preferred">Strongly Preferred</option>
+          <option value="Strongly to Very Strongly Preferred">Strongly to Very Strongly Preferred</option>
+          <option value="Very Strongly Preferred">Very Strongly Preferred</option>
+          <option value="Very Strongly to Extremely Preferred">Very Strongly to Extremely Preferred</option>
+          <option value="Extremely Preferred">Extremely Preferred</option>
+        </select></td>
+      <td>Equal</td>
+      <td><select name="ql_ab" id="ql_ab">
+          <option value="----" selected="selected">--------</option>
+          <option value="Equally Preferred">Equally Preferred</option>
+          <option value="Equally to Moderately Preferred">Equally to Moderately Preferred</option>
+          <option value="Moderately Preferred">Moderately Preferred</option>
+          <option value="Moderately to Strongly Preferred">Moderately to Strongly Preferred</option>
+          <option value="Strongly Preferred">Strongly Preferred</option>
+          <option value="Strongly to Very Strongly Preferred">Strongly to Very Strongly Preferred</option>
+          <option value="Very Strongly Preferred">Very Strongly Preferred</option>
+          <option value="Very Strongly to Extremely Preferred">Very Strongly to Extremely Preferred</option>
+          <option value="Extremely Preferred">Extremely Preferred</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td>Ability</td>
+      <td><select name="ab_ex" id="ab_ex">
+          <option value="----" selected="selected">--------</option>
+          <option value="Equally Preferred">Equally Preferred</option>
+          <option value="Equally to Moderately Preferred">Equally to Moderately Preferred</option>
+          <option value="Moderately Preferred">Moderately Preferred</option>
+          <option value="Moderately to Strongly Preferred">Moderately to Strongly Preferred</option>
+          <option value="Strongly Preferred">Strongly Preferred</option>
+          <option value="Strongly to Very Strongly Preferred">Strongly to Very Strongly Preferred</option>
+          <option value="Very Strongly Preferred">Very Strongly Preferred</option>
+          <option value="Very Strongly to Extremely Preferred">Very Strongly to Extremely Preferred</option>
+          <option value="Extremely Preferred">Extremely Preferred</option>
+        </select></td>
+      <td><select name="ab_lb" id="ab_lb">
+          <option value="----" selected="selected">--------</option>
+          <option value="Equally Preferred">Equally Preferred</option>
+          <option value="Equally to Moderately Preferred">Equally to Moderately Preferred</option>
+          <option value="Moderately Preferred">Moderately Preferred</option>
+          <option value="Moderately to Strongly Preferred">Moderately to Strongly Preferred</option>
+          <option value="Strongly Preferred">Strongly Preferred</option>
+          <option value="Strongly to Very Strongly Preferred">Strongly to Very Strongly Preferred</option>
+          <option value="Very Strongly Preferred">Very Strongly Preferred</option>
+          <option value="Very Strongly to Extremely Preferred">Very Strongly to Extremely Preferred</option>
+          <option value="Extremely Preferred">Extremely Preferred</option>
+        </select></td>
+      <td><select name="ab_ql" id="ab_ql">
+          <option value="----" selected="selected">--------</option>
+          <option value="Equally Preferred">Equally Preferred</option>
+          <option value="Equally to Moderately Preferred">Equally to Moderately Preferred</option>
+          <option value="Moderately Preferred">Moderately Preferred</option>
+          <option value="Moderately to Strongly Preferred">Moderately to Strongly Preferred</option>
+          <option value="Strongly Preferred">Strongly Preferred</option>
+          <option value="Strongly to Very Strongly Preferred">Strongly to Very Strongly Preferred</option>
+          <option value="Very Strongly Preferred">Very Strongly Preferred</option>
+          <option value="Very Strongly to Extremely Preferred">Very Strongly to Extremely Preferred</option>
+          <option value="Extremely Preferred">Extremely Preferred</option>
+        </select></td>
+      <td>Equal</td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<button type="submit" class="btn btn-default">Submit</button>
+{% endblock main %}
+
+
+{% block extrajs %}
+<script>
+  $(document).ready(function () {
+    var table = $('#financial').DataTable({
+      "paging": false,
+      "ordering": false,
+      "info": false,
+      "searching": false
+    });
+
+    $('button').click(function () {
+      var data = table.$('input, select').serialize();
+      alert(
+        "The following data would have been submitted to the server: \n\n" +
+        data.substr(0, 120) + '...'
+      );
+      console.log(data)
+      return false;
+    });
+  });
+</script>
+{% endblock %}

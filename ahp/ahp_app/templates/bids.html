@@ -3,21 +3,23 @@
 
 {% block main %}
 <div class="mbody">
-  <div class="col-md-8">
-      <table class="table table-stripped">
-          <thead>
-              <th>Project Title</th>
-              <th>Date Created</th>
-          </thead>
-          <tbody>
-              {% for bid in bids %}
-                  <tr>
-                      <td><a href="{{ bid.get_absolute_url }}">{{ bid.name }}</a></td>
-                      <td>{{ bid.created_at }}</td>
-                  </tr>
-              {% endfor %}
-          </tbody>
-      </table>      
-  </div>
+    <div class="col-md-8">
+        <table class="table table-stripped">
+            <thead>
+                <th>Project Title</th>
+                <th>Date Created</th>
+                <th></th>
+            </thead>
+            <tbody>
+                {% for bid in bids %}
+                <tr>
+                    <td><a href="{{ bid.get_absolute_url }}">{{ bid.name }}</a></td>
+                    <td>{{ bid.pub_date }}</td>
+                    <td><a href="{% url 'create-new-rating' %}">Rate Bid</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}

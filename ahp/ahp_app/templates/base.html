@@ -44,12 +44,23 @@
 
   <link rel="stylesheet" href="{% static 'chosen/chosen.css' %}">
   <link rel="stylesheet" href="{% static 'chosen/prism.css' %}">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
   <!-- Main Stylesheet File -->
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
   <!--Your custom colour override - predefined colours are: colour-blue.css, colour-green.css, colour-lavander.css, orange is default-->
-  {% comment %} <link href="{% static 'css/colour-lavender.css' %}" rel="stylesheet"> {% endcomment %}
+  {% comment %}
+  <link href="{% static 'css/colour-lavender.css' %}" rel="stylesheet"> {% endcomment %}
+  <style>
+    #main-block{
+        min-height: 600px;
+      }
+  </style>
+  {% block extra_css %}
+
+  {% endblock extra_css %}
+  <title>AHP PhD Project</title>
 </head>
 
 <body class="page-index has-hero">
@@ -66,9 +77,9 @@
               <!--navbar-branding/logo - hidden image tag & site name so things like Facebook to pick up, actual logo set via CSS for flexibility -->
               <a class="navbar-brand" href="{% url 'root' %}" title="Home">
                 <h1 class="hidden">
-                    <img src="{% static 'img/logo.png' %}" alt="FAHP">
-                    ContraSel
-                  </h1>
+                  <img src="{% static 'img/logo.png' %}" alt="FAHP">
+                  ContraSel
+                </h1>
               </a>
               <div class="navbar-slogan">
                 Contactor Selection Portal
@@ -79,7 +90,13 @@
             <div class="col-md-4">
               <!--user menu-->
               <ul class="list-inline user-menu pull-right">
-                <li class="user-login"><i class="fa fa-sign-in text-primary"></i> {% if user.is_authenticated %}  <a href="{% url 'logout' %}" class="text-uppercase"> <b>{{ user.username }}! <br> </b> Logout</a> {% else %}<a href="{% url 'login' %}" class="text-uppercase"> <b>Login</b> </a>{% endif %} </li>
+                <li class="user-login"><i class="fa fa-sign-in text-primary"></i>
+                  {% if user.is_authenticated %}
+                  <a href="{% url 'logout' %}" class="text-uppercase"> <b>{{ user.username }}! <br> </b> Logout</a>
+                  {% else %}
+                  <a href="{% url 'login' %}" class="text-uppercase"> <b>Login</b> </a>
+                  {% endif %}
+                </li>
               </ul>
             </div>
           </div>
@@ -88,7 +105,9 @@
       <div class="container">
         <div class="navbar navbar-default">
           <!--mobile collapse menu button-->
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse"
+            aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
+              class="icon-bar"></span> <span class="icon-bar"></span> </button>
           <!--social media icons-->
           <div class="navbar-text social-media social-media-inline pull-right">
             <!--@todo: replace with company social media details-->
@@ -103,18 +122,20 @@
               <li class="icon-link">
                 <a href="{% url 'root' %}"><i class="fa fa-home"></i></a>
               </li>
+              {% if perms.bid.admin %}
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">ADMIN<b class="caret"></b></a>
                 <!-- Dropdown Menu -->
                 <ul class="dropdown-menu">
                   <li class="dropdown-header">Options</li>
                   <li><a href="{% url 'new-bid' %}" tabindex="-1" class="menu-item">New Bid</a></li>
-                  <li><a href="{% url 'admin-views' %}" tabindex="-1" class="menu-item">Bids</a></li>                
+                  <li><a href="{% url 'admin-views' %}" tabindex="-1" class="menu-item">Bids</a></li>
                   <li><a href="#" tabindex="-1" class="menu-item">Closed Bids</a></li>
                   <li><a href="{% url 'contractors' %}" tabindex="-1" class="menu-item">Contractors</a></li>
                   <li class="dropdown-footer">Admin Action</li>
                 </ul>
               </li>
+              {% endif %}
               <li class="dropdown dropdown-mm">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">DECISION MAKERS<b class="caret"></b></a>
                 <!-- Dropdown Menu -->
@@ -123,6 +144,7 @@
                     <ul class="">
                       <li class="dropdown-header">Decision makers' panel</li>
                       <li><a href="{% url 'bids' %}" tabindex="-1" class="menu-item">Active Bids</a></li>
+                      <li><a href="{% url 'contractors' %}" tabindex="-1" class="menu-item">Contractors</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -160,35 +182,35 @@
 
   <!-- ======== @Region: #content ======== -->
   <div id="container-fluid ">
-    <div class="container">
-       {% block main %}
+    <div class="container" id="main-block">
+      {% block main %}
 
-       {% endblock main %}
+      {% endblock main %}
     </div>
   </div>
   <!-- /content -->
 
   <!-- ======== @Region: #footer ======== -->
-    <footer id="" class="block block-bg-grey-dark">
-      <div class="container">
-        <div class="row ">
-          <!--@todo: replace with company copyright details-->
-          <div class="col-md-7">
-            <p>Copyright © Afolayan</p>
-          </div>
-          <div class="col-md-5">
-            <ul class="list-inline pull-right">
-              <li><a href="#">Terms</a></li>
-              <li><a href="#">Privacy</a></li>
-              <li><a href="#">Contact Us</a></li>
-            </ul>
-          </div>
+  <footer id="" class="block block-bg-grey-dark">
+    <div class="container">
+      <div class="row ">
+        <!--@todo: replace with company copyright details-->
+        <div class="col-md-7">
+          <p>Copyright © Afolayan</p>
         </div>
-
-        <a href="#top" class="scrolltop">Top</a>
-
+        <div class="col-md-5">
+          <ul class="list-inline pull-right">
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
       </div>
-    </footer>
+
+      <a href="#top" class="scrolltop">Top</a>
+
+    </div>
+  </footer>
 
   <!-- Required JavaScript Libraries -->
   <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
@@ -203,6 +225,12 @@
   <script src="{% static 'chosen/prism.js' %}" type="text/javascript" charset="utf-8"></script>
   <script src="{% static 'chosen/init.js' %}" type="text/javascript" charset="utf-8"></script>
   <script src="{% static 'js/custom.js' %}"></script>
+
+  <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+
+
 
   <!--Custom scripts demo background & colour switcher - OPTIONAL -->
   <script src="{% static 'js/color-switcher.js' %}"></script>
